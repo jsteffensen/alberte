@@ -11,10 +11,12 @@ function askQuestion(query) {
     }));
 }
 
-const answerClear = await askQuestion('Do you want to clear segments? (y/n): ');
-
-if (answerClear === 'y') {
-    await clearSegments();
-} else {
-    console.log('Skipping segment clearing.');
-}
+(async () => {
+    const answerClear = await askQuestion('Do you want to clear segments? (y/n): ');
+    
+    if (answerClear === 'y') {
+        await clearSegments();
+    } else {
+        console.log('Skipping segment clearing.');
+    }
+});
